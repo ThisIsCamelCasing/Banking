@@ -68,4 +68,17 @@ def withdraw_button_click():
     else:
         balance_label["text"] = "User not found"
 
+# Create the GUI
+window = tk.Tk()
+window.title("Banking System")
+
+# User ID label and entry
+user_id_label = tk.Label(window, text="User ID:")
+user_id_label.pack()
+user_id_entry = tk.Entry(window)
+user_id_entry.pack()
+
+# Submit button
+submit_button = tk.Button(window, text="Submit", command=submit_button_click)
+submit_button.pack()
 
