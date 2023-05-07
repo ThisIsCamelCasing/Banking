@@ -15,3 +15,23 @@ def get_user_info(user_id):
     user_info = cursor.fetchone()
     return user_info
 
+# Function to update user balance
+def update_balance(user_id, new_balance):
+    cursor.execute("UPDATE users SET balance=? WHERE id=?", (new_balance, user_id))
+    conn.commit()
+
+# Function to handle ID submit button click
+def submit_button_click():
+    user_id = user_id_entry.get()
+    
+    user_info = get_user_info(user_id)
+    if user_info:
+        balance = user_info[3]
+        balance_label["text"] = f"Balance: {balance}"
+        deposit_button["state"] = "normal"
+        withdraw_button["state"] = "normal"
+    else:
+        balance_label["text"] = "User not found"
+        deposit_button["state"] = "disabled"
+        withdraw_button["state"] = "disabled"
+
