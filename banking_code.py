@@ -9,3 +9,9 @@ import sqlite3
 conn = sqlite3.connect('bank.db')
 cursor = conn.cursor()
 
+# Function to retrieve user information
+def get_user_info(user_id):
+    cursor.execute("SELECT * FROM users WHERE id=?", (user_id,))
+    user_info = cursor.fetchone()
+    return user_info
+
