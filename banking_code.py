@@ -82,3 +82,26 @@ user_id_entry.pack()
 submit_button = tk.Button(window, text="Submit", command=submit_button_click)
 submit_button.pack()
 
+# Amount label and entry
+amount_label = tk.Label(window, text="Amount:")
+amount_label.pack()
+amount_entry = tk.Entry(window)
+amount_entry.pack()
+
+# Deposit button
+deposit_button = tk.Button(window, text="Deposit", command=deposit_button_click, state="disabled")
+deposit_button.pack()
+
+# Withdraw button
+withdraw_button = tk.Button(window, text="Withdraw", command=withdraw_button_click, state="disabled")
+withdraw_button.pack()
+
+# Balance label
+balance_label = tk.Label(window, text="Balance: ")
+balance_label.pack()
+
+# Start the main loop
+window.mainloop()
+
+# Close the connection
+conn.close()
