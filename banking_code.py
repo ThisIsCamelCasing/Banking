@@ -2,10 +2,18 @@ import mysql.connector
 
 connection = mysql.connector.connect(user = "root", database = "elite102", password="saif2007-")
 
-from tkinter import *
+import tkinter as tk
+import sqlite3
 
-root = Tk()
+# Connect to the database
+conn = sqlite3.connect('bank.db')
+cursor = conn.cursor()
 
-label = Label(root, text="")
-print("Hello! This is the Wells Fargo Bank App")
+# Create a table if it doesn't exist
+cursor.execute('''CREATE TABLE IF NOT EXISTS users (
+                    id TEXT PRIMARY KEY,
+                    username TEXT,
+                    password TEXT,
+                    balance INTEGER,
+                    is_admin INTEGER)''')
 
