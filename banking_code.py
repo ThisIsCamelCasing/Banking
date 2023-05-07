@@ -35,3 +35,37 @@ def submit_button_click():
         deposit_button["state"] = "disabled"
         withdraw_button["state"] = "disabled"
 
+# Function to handle deposit button click
+def deposit_button_click():
+    user_id = user_id_entry.get()
+    amount = int(amount_entry.get())
+    
+    user_info = get_user_info(user_id)
+    if user_info:
+        current_balance = user_info[3]
+        new_balance = current_balance + amount
+        update_balance(user_id, new_balance)
+        
+        balance_label["text"] = f"Balance: {new_balance}"
+    else:
+        balance_label["text"] = "User not found"
+
+# Function to handle withdraw button click
+def withdraw_button_click():
+    user_id = user_id_entry.get()
+    amount = int(amount_entry.get())
+    
+    user_info = get_user_info(user_id)
+    if user_info:
+        current_balance = user_info[3]
+        if current_balance >= amount:
+            new_balance = current_balance - amount
+            update_balance(user_id, new_balance)
+            
+            balance_label["text"] = f"Balance: {new_balance}"
+        else:
+            balance_label["text"] = "Insufficient funds"
+    else:
+        balance_label["text"] = "User not found"
+
+
