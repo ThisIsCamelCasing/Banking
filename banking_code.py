@@ -1,3 +1,8 @@
+#I have used Johan Godinho's series of YouTube videos to aid me in the development of this project. 
+#YouTube link for part 1: https://youtu.be/71X58zIzrgA
+#YouTube link for part 2: https://youtu.be/0AKWbdBVY7c
+#YouTube link for part 3: https://youtu.be/ng5H3lGZ4m8
+
 import mysql.connector
 
 connection = mysql.connector.connect(user = "root", database = "elite102", password="saif2007-")
